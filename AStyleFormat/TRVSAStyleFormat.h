@@ -3,6 +3,7 @@
 //  ClangFormat
 //
 //  Created by Travis Jeffery on 1/7/14.
+//  Modifided by Edward Chen on 1/22/15..
 //  Copyright (c) 2014 Travis Jeffery. All rights reserved.
 //
 
@@ -10,6 +11,6 @@
 
 // the central plug-in interface
 
-@interface TRVSClangFormat : NSObject
+@interface TRVSAStyleFormat : NSObject
 
 @end

@@ -3,6 +3,7 @@
 //  ClangFormat
 //
 //  Created by Travis Jeffery on 1/9/14.
+//  Modifided by Edward Chen on 1/22/15..
 //  Copyright (c) 2014 Travis Jeffery. All rights reserved.
 //
 
@@ -38,6 +39,10 @@
 @interface DVTFilePath : NSObject
 @property (readonly) NSURL *fileURL;
 @property (readonly) DVTFileDataType *fileDataTypePresumed;
+@end
+
+@interface DVTSourceTextView : NSTextView
+- (void) indentSelection:(id) arg1;
 @end
 
 @interface IDEContainerItem : NSObject
@@ -80,6 +85,9 @@
 @property (readonly) IDENavigatorArea *navigatorArea;
 @end
 
+@interface IDERunPauseContinueToolbarButton : NSObject
+@end
+
 @interface IDEDocumentController : NSDocumentController
 + (id) editorDocumentForNavigableItem:(id) arg1;
 + (id) retainedEditorDocumentForNavigableItem:(id) arg1 error:(id *) arg2;
@@ -97,7 +105,7 @@
 @end
 
 @interface IDESourceCodeEditor : NSObject
-@property (retain) NSTextView *textView;
+@property (retain) DVTSourceTextView *textView;
 - (IDESourceCodeDocument *) sourceCodeDocument;
 @end
 
@@ -126,7 +134,7 @@
 @interface TRVSXcode : NSObject
 
 + (IDESourceCodeDocument *) sourceCodeDocument;
-+ (NSTextView *) textView;
++ (DVTSourceTextView *) textView;
 + (BOOL) textViewHasSelection;
 + (NSRange) wholeRangeOfTextView;
 + (NSArray *) selectedFileNavigableItems;

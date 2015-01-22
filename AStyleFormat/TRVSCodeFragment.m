@@ -3,6 +3,7 @@
 //  ClangFormat
 //
 //  Created by Travis Jeffery on 1/9/14.
+//  Modifided by Edward Chen on 1/22/15..
 //  Copyright (c) 2014 Travis Jeffery. All rights reserved.
 //
 
@@ -25,9 +26,7 @@
 
 @implementation TRVSCodeFragment
 
-+ (instancetype) fragmentUsingBlock:
-
-(void (^)(TRVSCodeFragmentBuilder *builder)) block
++ (instancetype) fragmentUsingBlock:(void (^)(TRVSCodeFragmentBuilder *builder)) block
 {
     TRVSCodeFragmentBuilder *builder = [TRVSCodeFragmentBuilder new];
     block(builder);
@@ -45,10 +44,9 @@
     return self;
 }
 
-- (void) formatWithStyle:(NSString *) style
-usingClangFormatAtLaunchPath:(NSString *) launchPath
-                   block:(void (^)(NSString *formattedString,
-                                   NSError *error)) block
+- (void) formatWithStyle:(NSString *) stylePath
+usingAStyleFormatAtLaunchPath:(NSString *) launchPath
+                   block:(void (^)(NSString *formattedString, NSError *error)) block
 {
     NSURL *tmpFileURL = [self.fileURL URLByAppendingPathExtension:@"trvs"];
     [self.string writeToURL:tmpFileURL
@@ -64,9 +62,8 @@ usingClangFormatAtLaunchPath:(NSString *) launchPath
     task.standardError = errorPipe;
     task.launchPath = launchPath;
     task.arguments = @[
-                       [NSString stringWithFormat:@"--style=%@", style],
-                       @"-i",
-                       [tmpFileURL path]
+                       [NSString stringWithFormat:@"--options=%@", stylePath],
+                       [tmpFileURL path],
                        ];
     
     [outputPipe.fileHandleForReading readToEndOfFileInBackgroundAndNotify];

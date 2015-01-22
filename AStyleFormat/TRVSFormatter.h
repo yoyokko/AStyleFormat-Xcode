@@ -3,6 +3,7 @@
 //  ClangFormat
 //
 //  Created by Travis Jeffery on 1/9/14.
+//  Modifided by Edward Chen on 1/22/15..
 //  Copyright (c) 2014 Travis Jeffery. All rights reserved.
 //
 
@@ -12,14 +13,14 @@
 
 @interface TRVSFormatter : NSObject
 
-@property (nonatomic, copy) NSString *style;
+@property (nonatomic, copy) NSString *styleFilePath;
 @property (nonatomic, copy) NSString *executablePath;
-@property (nonatomic) BOOL useSystemClangFormat;
 
 + (instancetype) sharedFormatter;
-- (instancetype) initWithStyle:(NSString *) style
-                executablePath:(NSString *) executablePath
-          useSystemClangFormat:(BOOL) useSystemClangFormat;
+
+- (instancetype) initWithStyle:(NSString *) stylePath
+                executablePath:(NSString *) executablePath;
+
 - (void) formatActiveFile;
 - (void) formatSelectedCharacters;
 - (void) formatSelectedFiles;

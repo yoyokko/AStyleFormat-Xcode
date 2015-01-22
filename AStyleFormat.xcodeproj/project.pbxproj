@@ -11,7 +11,7 @@
 		3228E445187F200D0037DECF /* TRVSCodeFragment.m in Sources */ = {isa = PBXBuildFile; fileRef = 3228E444187F200D0037DECF /* TRVSCodeFragment.m */; };
 		32A57EE8187C05A4002DEC9D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A57EE7187C05A4002DEC9D /* Foundation.framework */; };
 		32A57EEE187C05A4002DEC9D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 32A57EEC187C05A4002DEC9D /* InfoPlist.strings */; };
-		32A57EF1187C05A4002DEC9D /* TRVSClangFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A57EF0187C05A4002DEC9D /* TRVSClangFormat.m */; };
+		32A57EF1187C05A4002DEC9D /* TRVSAStyleFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A57EF0187C05A4002DEC9D /* TRVSAStyleFormat.m */; };
 		32ABEDCA187EF90500D4E980 /* TRVSXcode.m in Sources */ = {isa = PBXBuildFile; fileRef = 32ABEDC9187EF90500D4E980 /* TRVSXcode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		32ABEDD0187EF98400D4E980 /* DVTFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32ABEDCE187EF98400D4E980 /* DVTFoundation.framework */; };
 		32ABEDD1187EF98400D4E980 /* DVTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32ABEDCF187EF98400D4E980 /* DVTKit.framework */; };
@@ -19,9 +19,10 @@
 		32ABEDD5187EF9A600D4E980 /* IDEKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32ABEDD3187EF9A600D4E980 /* IDEKit.framework */; };
 		32ABEDDC187EFA4F00D4E980 /* TRVSFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 32ABEDD9187EFA4F00D4E980 /* TRVSFormatter.m */; };
 		32ABEDDD187EFA4F00D4E980 /* TRVSPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 32ABEDDB187EFA4F00D4E980 /* TRVSPreferences.m */; };
-		32F745E418823A57007541E1 /* NSDocument+TRVSClangFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F745E318823A57007541E1 /* NSDocument+TRVSClangFormat.m */; };
 		362554401A708D640067E58A /* astyle in Resources */ = {isa = PBXBuildFile; fileRef = 3625543E1A708D640067E58A /* astyle */; };
 		362554411A708D640067E58A /* astylerc in Resources */ = {isa = PBXBuildFile; fileRef = 3625543F1A708D640067E58A /* astylerc */; };
+		367289721A70F3F30087A175 /* TRVSDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 367289711A70F3F30087A175 /* TRVSDocument.m */; };
+		367BC71E1A70F0FE000BC22C /* AStyleHooker.m in Sources */ = {isa = PBXBuildFile; fileRef = 367BC71D1A70F0FE000BC22C /* AStyleHooker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,8 +34,8 @@
 		32A57EE7187C05A4002DEC9D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		32A57EEB187C05A4002DEC9D /* AStyleFormat-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AStyleFormat-Info.plist"; sourceTree = "<group>"; };
 		32A57EED187C05A4002DEC9D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		32A57EEF187C05A4002DEC9D /* TRVSClangFormat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TRVSClangFormat.h; sourceTree = "<group>"; };
-		32A57EF0187C05A4002DEC9D /* TRVSClangFormat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRVSClangFormat.m; sourceTree = "<group>"; };
+		32A57EEF187C05A4002DEC9D /* TRVSAStyleFormat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TRVSAStyleFormat.h; sourceTree = "<group>"; };
+		32A57EF0187C05A4002DEC9D /* TRVSAStyleFormat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TRVSAStyleFormat.m; sourceTree = "<group>"; };
 		32A57EF2187C05A4002DEC9D /* AStyleFormat-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AStyleFormat-Prefix.pch"; sourceTree = "<group>"; };
 		32ABEDC8187EF90500D4E980 /* TRVSXcode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRVSXcode.h; sourceTree = "<group>"; };
 		32ABEDC9187EF90500D4E980 /* TRVSXcode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRVSXcode.m; sourceTree = "<group>"; };
@@ -46,10 +47,12 @@
 		32ABEDD9187EFA4F00D4E980 /* TRVSFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRVSFormatter.m; sourceTree = "<group>"; };
 		32ABEDDA187EFA4F00D4E980 /* TRVSPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRVSPreferences.h; sourceTree = "<group>"; };
 		32ABEDDB187EFA4F00D4E980 /* TRVSPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRVSPreferences.m; sourceTree = "<group>"; };
-		32F745E218823A57007541E1 /* NSDocument+TRVSClangFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDocument+TRVSClangFormat.h"; sourceTree = "<group>"; };
-		32F745E318823A57007541E1 /* NSDocument+TRVSClangFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDocument+TRVSClangFormat.m"; sourceTree = "<group>"; };
 		3625543E1A708D640067E58A /* astyle */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = astyle; sourceTree = "<group>"; };
 		3625543F1A708D640067E58A /* astylerc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = astylerc; sourceTree = "<group>"; };
+		367289701A70F3F30087A175 /* TRVSDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRVSDocument.h; sourceTree = "<group>"; };
+		367289711A70F3F30087A175 /* TRVSDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRVSDocument.m; sourceTree = "<group>"; };
+		367BC71C1A70F0FE000BC22C /* AStyleHooker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AStyleHooker.h; sourceTree = "<group>"; };
+		367BC71D1A70F0FE000BC22C /* AStyleHooker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AStyleHooker.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +106,10 @@
 		32A57EE9187C05A4002DEC9D /* AStyleFormat */ = {
 			isa = PBXGroup;
 			children = (
-				32A57EEF187C05A4002DEC9D /* TRVSClangFormat.h */,
-				32A57EF0187C05A4002DEC9D /* TRVSClangFormat.m */,
+				367BC71C1A70F0FE000BC22C /* AStyleHooker.h */,
+				367BC71D1A70F0FE000BC22C /* AStyleHooker.m */,
+				32A57EEF187C05A4002DEC9D /* TRVSAStyleFormat.h */,
+				32A57EF0187C05A4002DEC9D /* TRVSAStyleFormat.m */,
 				32ABEDD8187EFA4F00D4E980 /* TRVSFormatter.h */,
 				32ABEDD9187EFA4F00D4E980 /* TRVSFormatter.m */,
 				3228E443187F200D0037DECF /* TRVSCodeFragment.h */,
@@ -113,8 +118,8 @@
 				32ABEDDB187EFA4F00D4E980 /* TRVSPreferences.m */,
 				32ABEDC8187EF90500D4E980 /* TRVSXcode.h */,
 				32ABEDC9187EF90500D4E980 /* TRVSXcode.m */,
-				32F745E218823A57007541E1 /* NSDocument+TRVSClangFormat.h */,
-				32F745E318823A57007541E1 /* NSDocument+TRVSClangFormat.m */,
+				367289701A70F3F30087A175 /* TRVSDocument.h */,
+				367289711A70F3F30087A175 /* TRVSDocument.m */,
 				32A57EEA187C05A4002DEC9D /* Supporting Files */,
 			);
 			path = AStyleFormat;
@@ -204,12 +209,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32A57EF1187C05A4002DEC9D /* TRVSClangFormat.m in Sources */,
+				32A57EF1187C05A4002DEC9D /* TRVSAStyleFormat.m in Sources */,
+				367BC71E1A70F0FE000BC22C /* AStyleHooker.m in Sources */,
 				3228E445187F200D0037DECF /* TRVSCodeFragment.m in Sources */,
 				32ABEDDC187EFA4F00D4E980 /* TRVSFormatter.m in Sources */,
-				32F745E418823A57007541E1 /* NSDocument+TRVSClangFormat.m in Sources */,
 				32ABEDCA187EF90500D4E980 /* TRVSXcode.m in Sources */,
 				32ABEDDD187EFA4F00D4E980 /* TRVSPreferences.m in Sources */,
+				367289721A70F3F30087A175 /* TRVSDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,12 +313,12 @@
 					"$(DEVELOPER_DIR)/../Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ClangFormat/AStyleFormat-Prefix.pch";
+				GCC_PREFIX_HEADER = "AStyleFormat/AStyleFormat-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DT_TOOLCHAIN_DIR)/usr/include",
 				);
-				INFOPLIST_FILE = "ClangFormat/AStyleFormat-Info.plist";
+				INFOPLIST_FILE = "AStyleFormat/AStyleFormat-Info.plist";
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(DEVELOPER_DIR)";
 				PRODUCT_NAME = AStyleFormat;
@@ -332,12 +338,12 @@
 					"$(DEVELOPER_DIR)/../Frameworks",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ClangFormat/AStyleFormat-Prefix.pch";
+				GCC_PREFIX_HEADER = "AStyleFormat/AStyleFormat-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(DT_TOOLCHAIN_DIR)/usr/include",
 				);
-				INFOPLIST_FILE = "ClangFormat/AStyleFormat-Info.plist";
+				INFOPLIST_FILE = "AStyleFormat/AStyleFormat-Info.plist";
 				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(DEVELOPER_DIR)";
 				PRODUCT_NAME = AStyleFormat;

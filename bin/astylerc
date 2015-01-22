@@ -29,8 +29,6 @@
 # make a mess of the source tree.  If astyle screws up, we'll rely on git.
 suffix=none
 
-recursive
-
 # This is the _bracket_ style (not affecting indentation, for example.)
 style=allman
 
