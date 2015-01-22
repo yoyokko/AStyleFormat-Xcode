@@ -91,24 +91,26 @@
 
 - (void) formatDocument:(IDESourceCodeDocument *) document
 {
+    NSScrollView *scrollView = [[TRVSXcode textView] enclosingScrollView];
+    NSClipView *clipView = [scrollView contentView];
+    NSRect rect = clipView.visibleRect;
+    
     NSUInteger location = [[TRVSXcode textView] selectedRange].location;
     NSUInteger length = [[document textStorage] length];
     
     [self formatRanges:@[ [NSValue valueWithRange:NSMakeRange(0, length) ] ]
             inDocument:document];
     
-    length = [[document textStorage] length];
-    NSRange allRagne = NSMakeRange(0, length);
-    [[TRVSXcode textView] setSelectedRange:allRagne];
-    [[TRVSXcode textView] indentSelection:[TRVSXcode textView]];
-    
     if (location >= ([[document textStorage] length] - 1))
     {
         location = [[document textStorage] length] - 1;
     }
+    
+    [clipView scrollToPoint:rect.origin];
+    [scrollView reflectScrolledClipView:clipView];
+    
     NSRange range = NSMakeRange(location, 0);
     [[TRVSXcode textView] setSelectedRange:range];
-    [[TRVSXcode textView] scrollRangeToVisible:range];
 }
 
 #pragma mark - Private
@@ -136,13 +138,10 @@
                                                                     usingTextStorage:textStorage
                                                                         withDocument:document];
              
-             NSRange allRange = NSMakeRange(0, textStorage.length);
-             [[TRVSXcode textView] setSelectedRange:allRange];
-             [[TRVSXcode textView] indentSelection:[TRVSXcode textView]];
-             
              if (selectionRanges.count > 0)
              {
                  [[TRVSXcode textView] setSelectedRanges:selectionRanges];
+                 [[TRVSXcode textView] indentSelection:[TRVSXcode textView]];
              }
          }
          else
@@ -226,8 +225,7 @@
              return;
          }
          
-         NSString *string =
-         [[textStorage string] substringWithRange:characterRange];
+         NSString *string = [[textStorage string] substringWithRange:characterRange];
          
          if (!string.length)
          {

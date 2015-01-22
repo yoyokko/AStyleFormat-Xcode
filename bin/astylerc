@@ -64,7 +64,6 @@ align-reference=name
 
 break-closing-brackets
 add-brackets
-close-templates
 
 break-after-logical
 

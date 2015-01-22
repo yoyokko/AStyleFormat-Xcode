@@ -49,6 +49,7 @@ static BOOL trvs_formatOnSave;
     [(IDESourceCodeDocument *) self saveDocumentWithDelegate_:delegate
                                               didSaveSelector:didSaveSelector
                                                   contextInfo:contextInfo];
+    
 }
 
 - (void) autosaveDocumentWithDelegate:(id) delegate
@@ -141,7 +142,7 @@ static BOOL trvs_formatOnSave;
 
 - (void) performRunAction:(id) obj
 {
-    if ([TRVSDocument trvs_shouldFormatBeforeSaving:[TRVSXcode sourceCodeDocument]])
+    if ([TRVSDocument trvs_shouldFormatBeforeSaving:[TRVSXcode sourceCodeDocument]] && [[TRVSXcode sourceCodeDocument] isDocumentEdited])
     {
         [[TRVSFormatter sharedFormatter] formatDocument:[TRVSXcode sourceCodeDocument]];
     }
@@ -180,7 +181,7 @@ static BOOL trvs_formatOnSave;
 
 - (void) buildActiveRunContext:(id) obj
 {
-    if ([TRVSDocument trvs_shouldFormatBeforeSaving:[TRVSXcode sourceCodeDocument]])
+    if ([TRVSDocument trvs_shouldFormatBeforeSaving:[TRVSXcode sourceCodeDocument]] && [[TRVSXcode sourceCodeDocument] isDocumentEdited])
     {
         [[TRVSFormatter sharedFormatter] formatDocument:[TRVSXcode sourceCodeDocument]];
     }
@@ -190,7 +191,7 @@ static BOOL trvs_formatOnSave;
 
 - (void) runActiveRunContext:(id) obj
 {
-    if ([TRVSDocument trvs_shouldFormatBeforeSaving:[TRVSXcode sourceCodeDocument]])
+    if ([TRVSDocument trvs_shouldFormatBeforeSaving:[TRVSXcode sourceCodeDocument]] && [[TRVSXcode sourceCodeDocument] isDocumentEdited])
     {
         [[TRVSFormatter sharedFormatter] formatDocument:[TRVSXcode sourceCodeDocument]];
     }
